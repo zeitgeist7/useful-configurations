@@ -1,0 +1,47 @@
+<p>I figured it out! The steps make it look like it will take more effort than it actually does.</p>
+
+<p>Please note that these instructions are for creating a project from scratch. If you have existing Python scripts that you wish to include in this project, you will obviously need to deviate from these instructions.</p>
+
+<p>If you find that these instructions no longer work or are unclear due to changes in Xcode updates, please let me know. I will make the necessary corrections.</p>
+
+<ol>
+<li>Open Xcode 4 or Xcode 5. The instructions for either are the same.</li>
+<li>In the menu bar, click "File" → "New" → "New Project…".</li>
+<li>Select "Other" under "Mac OS X".</li>
+<li>Select "External Build System" and click "Next".</li>
+<li>Enter the product name, organization name, and company identifier.</li>
+<li>For the "Build Tool" field, type in <kbd>/usr/local/bin/python3</kbd> for Python 3 or <kbd>/usr/bin/python</kbd> for Python 2 (or Python 1 if you're into that kind of thing) and then click "Next". Note that this assumes you have Python installed in the typical location(s). if you are unsure as to where your Python executables are enter these commands into Terminal: <kbd>which python3</kbd> and <kbd>which python</kbd>.</li>
+<li>Choose where to save it and click "Create".</li>
+<li>In the menu bar, click "File" → "New" → "New File…".</li>
+<li>Select "Other" under "Mac OS X".</li>
+<li>Select "Empty" and click "Next".</li>
+<li>Navigate to the project folder (it will not work, otherwise), enter the name of the Python file (include the ".py" extension), and click "Save".</li>
+<li>In the menu bar, click "Product" → "Scheme" → "Edit Scheme…".</li>
+<li>Click "Run" in the left column.</li>
+<li>In the "Info" tab, click the "Executable" field and then click "Other…".</li>
+<li>Navigate to the executable from Step 6. You may need to use <kbd>⇧⌘G</kbd> to type in the directory if it is hidden.</li>
+<li>Select the executable and click "Choose".</li>
+<li>For the "Debugger" field, select "None".</li>
+<li>In the "Arguments" tab, click the "Expand Variables Based On" field and select the target that is named the same as your project.</li>
+<li>Click the "+" icon under "Arguments Passed On Launch". You may have to expand that section by clicking on the triangle pointing to the right.</li>
+<li>Type in <kbd>$(SRCROOT)/</kbd> (or <kbd>$(SOURCE_ROOT)/</kbd>) and then the name of the Python file you want to test. Remember, the Python program must be in the project folder. Otherwise, you will have to type out the full path (or relative path if it's in a subfolder of the project folder) here. If there are spaces anywhere in the full path, you must include quotation marks at the beginning and end of this.</li>
+<li>Click "OK".</li>
+<li>Start coding.</li>
+</ol>
+
+<p>Note that if you open the "Utilities" panel, with the "Show the File inspector" tab active, the file type is automatically set to "Default - Python script". Feel free to look through all the file type options it has to gain an idea as to what all it is capable of doing. The method above can be applied to any interpreted language. As of right now, I have yet to figure out exactly how to get it to work with Java; then again, I haven't done too much research. Surely there is some documentation floating around on the web about all of this.</p>
+
+<p>Say, "Hello, code completion, auto-indentation, git integration, and syntax highlighting." Note that it's not as advanced as it is with C, C++, or Objective-C but it is better than using IDLE in my opinion. Note that the auto-indentation seems to have been removed from newer releases.</p>
+
+<h2>Running without administrative privileges:</h2>
+
+<p>If you do not have administrative privileges or are not in the Developer group, you can still use Xcode for Python programming (but you still won't be able to develop in languages that require compiling). Instead of using the play button, in the menu bar, click "Product" → "Perform Action" → "Run Without Building" or simply use the keyboard shortcut <kbd>^⌘R</kbd>.</p>
+
+<h2>Other Notes:</h2>
+
+<p>To change the text encoding, line endings, and/or indentation settings, open the "Utilities" panel and click "Show the File inspector" tab active. There, you will find these settings.</p>
+
+<p>For more information about Xcode's build settings, there is no better source than <a href="http://developer.apple.com/library/mac/#documentation/DeveloperTools/Reference/XcodeBuildSettingRef/0-Introduction/introduction.html">this</a>. I'd be interested in hearing from somebody who got this to work with unsupported compiled languages. This process should work for any other interpreted language. Just be sure to change Step 6 and Step 11 accordingly.</p>
+
+<p>To any Apple developers who are still reading, I would love for this process to be better documented (in a general manner such that it's not restricted to just Python).</p>
+   
