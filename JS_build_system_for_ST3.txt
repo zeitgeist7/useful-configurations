@@ -1,0 +1,12 @@
+- Open the Tools>Build System menu and select “new build system”
+- Name it Node, and a new file called node.sublime-build will be created.
+- Add the following data to it and save:
+
+{
+    "cmd": ["node", "$file", "$file_base_name"],
+	"working_dir": "${project_path:${folder}}",
+	"selector": "*.js"
+}
+
+- Might need a restart of Sublime Text
+- Select Node as the build system
